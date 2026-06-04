@@ -109,6 +109,6 @@ agent=WeatherAgent(
     llm=llm,
     weather_tool=tool
 )
-result=agent.forecast("Should I carry an umbrealla at Ranchi today?")
+result=agent.forecast("Should I carry an umbrella at Ranchi today?")
 
 print(result.summary)

@@ -1,25 +1,66 @@
 # First AI Weather Agent
 
-A simple AI-powered weather agent built using Python and Google's Gemini model through LangChain.
+A simple AI-powered weather agent built using Python, Google's Gemini model, and the OpenWeatherMap API.
+
+The agent takes a natural language weather query, extracts the location using Gemini, fetches real-time weather information from OpenWeatherMap, and generates a user-friendly response.
 
 ## Features
 
-* Extracts a location from a user's weather-related query.
-* Uses a custom weather tool to retrieve weather information.
-* Generates a natural language response using Gemini.
-* Demonstrates the basic architecture of an AI agent:
-
-  * User Query
-  * Location Extraction
-  * Tool Execution
-  * LLM Response Generation
+* Natural language weather queries
+* Location extraction using Gemini
+* Real-time weather data using OpenWeatherMap API
+* Custom-built WeatherTool and WeatherAgent classes
+* AI-generated weather recommendations based on live weather data
 
 ## Technologies Used
 
 * Python
 * LangChain
 * Google Gemini 2.5 Flash
+* OpenWeatherMap API
 * Python Dotenv
+* Requests
+
+## How It Works
+
+```text
+User Query
+     ↓
+Gemini extracts location
+     ↓
+WeatherTool calls OpenWeatherMap API
+     ↓
+Weather data returned
+     ↓
+Gemini generates final response
+```
+
+## Example Query
+
+```python
+result = agent.forecast(
+    "Should I carry an umbrella at Delhi today?"
+)
+```
+
+## Example Weather Data
+
+```python
+{
+    "location": "Delhi",
+    "temperature": 41.85,
+    "humidity": 15,
+    "conditions": "clear sky"
+}
+```
+
+## Sample Response
+
+```text
+The weather in Delhi is currently 41.85°C with clear skies.
+
+Based on the current weather conditions, carrying an umbrella is not necessary unless rain is expected later in the day.
+```
 
 ## Project Structure
 
@@ -31,38 +72,22 @@ A simple AI-powered weather agent built using Python and Google's Gemini model t
 └── README.md
 ```
 
-## Example Query
+## Concepts Learned
 
-```python
-result = agent.forecast(
-    "Should I carry an umbrella at Delhi today?"
-)
-```
-
-### Sample Output
-
-```text
-Data: 28°C, Cloudy
-
-Summary:
-The weather in Delhi today is 28°C and cloudy.
-Based on the available weather information, carrying an umbrella may be helpful.
-```
-
-## Learning Goals
-
-This project was created to understand:
-
-* Basic AI Agent Architecture
+* AI Agent Architecture
 * Tool Calling
 * Prompt Engineering
-* LangChain Integration
-* Gemini API Usage
+* API Integration
+* Environment Variables
+* LangChain Basics
+* LLM-Powered Information Extraction
 
 ## Future Improvements
 
-* Integrate a real weather API
-* Add multiple tools
-* Implement tool selection logic
-* Use structured outputs with Pydantic
-* Add memory and chat history support
+* Multiple tool support
+* Tool selection and routing
+* Weather forecasts for upcoming days
+* Structured responses using Pydantic
+* Agent memory and chat history
+* Async API calls
+* Error handling and retries

@@ -7,21 +7,8 @@ import requests
 import os
 load_dotenv()
 
-class WeatherTool:
 
-    def get_weather(self, location):
 
-        api_key = os.getenv("WEATHER_API_KEY")
-
-        url = (
-            f"https://api.openweathermap.org/data/2.5/weather"
-            f"?q={location}"
-            f"&appid={api_key}"
-            f"&units=metric"
-        )
-        
-        import requests
-import os
 
 class WeatherTool:
     def get_weather(self, location):
